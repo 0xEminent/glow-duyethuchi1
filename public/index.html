@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLOW - ĐỀ XUẤT DUYỆT THU CHI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0..200">
+
+<style>
+:root{
+  --navy:#0a3f9f;
+  --blue:#0c4fb3;
+  --blue2:#2f8cff;
+  --green:#059b61;
+  --green2:#16b875;
+  --red:#dc4b4b;
+  --ink:#102b52;
+  --muted:#637694;
+  --line:rgba(72,135,214,.20);
+  --panel:linear-gradient(145deg,rgba(248,252,255,.94),rgba(226,239,255,.82));
+  --shadow:0 20px 45px rgba(0,54,145,.20),inset 0 1px 0 rgba(255,255,255,.92);
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  margin:0;
+  padding:22px;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:
+    url("assets/background.png") center top/cover fixed no-repeat,
+    #eef7ff;
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+.material-symbols-outlined{
+  font-family:'Material Symbols Outlined';
+  font-weight:400;
+  font-style:normal;
+  font-size:24px;
+  line-height:1;
+  letter-spacing:normal;
+  text-transform:none;
+  display:inline-block;
+  white-space:nowrap;
+  direction:ltr;
+  -webkit-font-smoothing:antialiased;
+  font-variation-settings:'FILL' 0,'wght' 450,'GRAD' 0,'opsz' 24;
+}
+
+/* ===== HEADER ===== */
+.ecorp-topbar{
+  width:min(1180px,100%);
+  margin:0 auto 17px;
+  padding:0 7px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.ecorp-brand{display:flex;align-items:center;gap:13px;min-width:0}
+.ecorp-logo-wrap{
+  width:122px;min-width:122px;height:60px;
+  display:grid;place-items:center;
+}
+.ecorp-logo{
+  max-width:125px;max-height:60px;width:auto;height:auto;
+  display:block;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,.18));
+}
+.ecorp-brand-divider{
+  width:1px;height:43px;background:rgba(255,255,255,.27);
+}
+.ecorp-brand-title{
+  color:#fff;
+  font-size:clamp(1rem,1.8vw,1.45rem);
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:.01em;
+  text-shadow:0 2px 12px rgba(0,0,0,.16);
+}
+.ecorp-brand-subtitle{
+  margin-top:4px;
+  color:rgba(255,255,255,.72);
+  font-size:.60rem;
+  font-weight:600;
+  letter-spacing:.10em;
+}
+
+/* ===== STATUS ===== */
+.ecorp-status-badges{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.ecorp-status{
+  min-width:145px;
+  height:56px;
+  padding:8px 12px;
+  display:flex;align-items:center;gap:9px;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:14px;
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.035));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 18px rgba(0,0,0,.12);
+  backdrop-filter:blur(12px);
+}
+.ecorp-status-icon{
+  width:24px;height:24px;flex:0 0 24px;
+  display:grid;place-items:center;
+  border-radius:8px;
+  background:linear-gradient(145deg,#2f8cff,#0c4fb3);
+  font-size:14px;
+}
+.ecorp-status strong,.ecorp-status small{display:block;white-space:nowrap}
+.ecorp-status strong{font-size:.70rem}
+.ecorp-status small{margin-top:2px;color:rgba(255,255,255,.68);font-size:.57rem}
+
+/* ===== MAIN PANEL ===== */
+.main-container{
+  width:min(1180px,100%);
+  margin:0 auto;
+}
+.form-panel{
+  position:relative;
+  overflow:hidden;
+  padding:15px 30px;
+  border-radius:19px;
+  border:1px solid rgba(255,255,255,.80);
+  background:var(--panel);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(5px);
+}
+.form-panel::before{
+  content:"";
+  position:absolute;
+  width:390px;height:390px;
+  right:-190px;top:-250px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.10),transparent 68%);
+  pointer-events:none;
+}
+
+/* ===== TITLE ===== */
+.panel-title{
+  min-height:67px;
+  margin:0 0 13px;
+  padding:9px 16px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  color:#fff;
+  background:linear-gradient(110deg,#083b9e 0%,#0c4fb3 48%,#2f8cff 100%);
+  box-shadow:0 10px 21px rgba(0,69,177,.21),inset 0 1px 0 rgba(255,255,255,.28);
+}
+.panel-title::after{
+  content:"";
+  position:absolute;
+  left:12%;right:12%;bottom:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.82),transparent);
+}
+.title-icon{
+  width:40px;height:40px;flex:0 0 40px;
+  display:grid;place-items:center;
+  border-radius:11px;
+  background:linear-gradient(145deg,rgba(255,255,255,.25),rgba(255,255,255,.07));
+  border:1px solid rgba(255,255,255,.23);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.30),0 5px 12px rgba(0,30,100,.14);
+}
+.title-copy{min-width:0}
+.title-copy strong{display:block;font-size:1rem;font-weight:800}
+.title-copy small{
+  display:block;
+  margin-top:3px;
+  color:rgba(255,255,255,.70);
+  font-size:.60rem;
+  letter-spacing:.08em;
+}
+
+/* ===== UNIFIED FORM TABLE ===== */
+.form-section{
+  margin-top:12px;
+  padding:13px 25px;
+  border:1px solid rgba(72,135,214,.17);
+  border-radius:13px;
+  background:linear-gradient(145deg,rgba(255,255,255,.80),rgba(238,247,255,.68));
+  box-shadow:0 8px 19px rgba(0,52,145,.055);
+}
+
+/*
+  Desktop:
+  2 cặp Label + Field trên cùng một hàng.
+  Label luôn 1 dòng; field ăn phần chiều rộng còn lại.
+  Hai bên có độ rộng label riêng để tất cả field thẳng hàng.
+*/
+.field-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:14px 20px;
+  align-items:center;
+}
+
+.field{
+  min-width:0;
+  min-height:48px;
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr);
+  align-items:center;
+  column-gap:10px;
+}
+
+.field:nth-child(even){
+  grid-template-columns:126px minmax(0,1fr);
+}
+
+.field.full{
+  grid-column:1/-1;
+  display:block;
+  min-height:0;
+}
+
+.field label{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  margin:0;
+  color:#234c82;
+  font-size:1rem;
+  font-weight:750;
+  line-height:1.15;
+  white-space:nowrap;
+}
+
+.required{
+  flex:0 0 auto;
+  color:#dc2626;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  min-width:0;
+  min-height:55px;
+  padding:9px 11px;
+  color:#16345f;
+  border:1px solid rgba(94,143,205,.22);
+  border-radius:10px;
+  outline:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(240,247,255,.91));
+  box-shadow:inset 0 1px 3px rgba(17,66,130,.045),0 3px 10px rgba(30,64,175,.035);
+  transition:border-color .2s,box-shadow .2s,transform .2s;
+  font-size:.95rem;
+}
+
+.field input::placeholder,
+.field textarea::placeholder{
+  font-size:.95rem;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:rgba(11,95,219,.58);
+  box-shadow:0 0 0 4px rgba(11,95,219,.09),0 8px 20px rgba(11,95,219,.07);
+}
+
+.amount-wrap{
+  position:relative;
+  min-width:0;
+}
+
+.amount-wrap input{
+  padding-right:65px;
+}
+
+.amount-unit{
+  position:absolute;
+  right:11px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#6b7f9d;
+  font-size:.78rem;
+  font-weight:700;
+  pointer-events:none;
+}
+
+/* Nội dung thu chi: title và placeholder nằm trong textarea,
+   không dùng pseudo-element để tránh chồng chữ. */
+.content-field{
+  position:relative;
+}
+
+.content-field textarea{
+  display:block;
+  width:100%;
+  min-height:105px;
+  padding:34px 13px 11px;
+  resize:vertical;
+  line-height:1.5;
+  font-size:.95rem;
+}
+
+.content-field textarea::placeholder{
+  color:#7890ad;
+  font-size:.95rem;
+  font-weight:650;
+  opacity:1;
+}
+
+.content-field::before{
+  content:"Nội dung thu chi *";
+  position:absolute;
+  z-index:2;
+  left:13px;
+  top:10px;
+  color:#7188a8;
+  font-size:.90rem;
+  font-weight:750;
+  pointer-events:none;
+}
+
+/* File đính kèm: label bên trái, vùng chứng từ bên phải */
+.file-field{
+  display:grid;
+  grid-template-columns:max-content minmax(0,1fr);
+  align-items:center;
+  column-gap:10px;
+  min-height:0;
+}
+
+.file-field > label{
+  display:block;
+  margin:0;
+  white-space:nowrap;
+  font-size:.90rem;
+}
+
+.file-field .file-box{
+  width:100%;
+  min-width:0;
+}
+
+/* Khi màn hình hẹp: chuyển thành 1 cột, nhưng label vẫn không bao giờ xuống dòng. */
+@media(max-width:900px){
+  .field-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+}
+
+@media(max-width:560px){
+  .field,
+  .field:nth-child(even){
+    grid-template-columns:max-content minmax(0,1fr);
+    column-gap:8px;
+  }
+
+  .field label{
+    font-size:.86rem;
+    white-space:nowrap;
+  }
+
+  .field input,
+  .field select,
+  .field textarea,
+  .field input::placeholder,
+  .field textarea::placeholder{
+    font-size:.95rem;
+  }
+}
+
+/* File đính kèm trên mobile vẫn giữ label trái / chứng từ phải */
+@media(max-width:560px){
+  .file-field{
+    grid-template-columns:max-content minmax(0,1fr);
+    column-gap:8px;
+  }
+
+  .file-field > label{
+    font-size:.86rem;
+    white-space:nowrap;
+  }
+
+  .file-field .file-box{
+    min-height:76px;
+    padding:9px;
+    gap:8px;
+  }
+
+  .file-field .file-icon{
+    width:36px;
+    height:36px;
+    flex:0 0 36px;
+  }
+
+  .file-field .file-copy strong{
+    font-size:.82rem;
+  }
+
+  .file-field .file-copy span{
+    font-size:.68rem;
+  }
+
+  .file-field .file-select-btn{
+    min-height:34px;
+    padding:0 9px;
+    font-size:.68rem;
+  }
+}
+
+@media(max-width:370px){
+  .file-field{
+    grid-template-columns:max-content minmax(0,1fr);
+    column-gap:6px;
+  }
+
+  .file-field .file-box{
+    gap:6px;
+    padding:7px;
+  }
+
+  .file-field .file-copy strong{
+    font-size:.95rem;
+  }
+
+  .file-field .file-select-btn{
+    padding:0 7px;
+    font-size:.75rem;
+  }
+}
+
+/* ===== FILE ===== */
+.file-box{
+  min-height:88px;
+  padding:11px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  border:1px dashed rgba(7,94,224,.32);
+  border-radius:11px;
+  background:linear-gradient(145deg,#f8fbff,#edf6ff);
+}
+.file-icon{
+  width:40px;height:40px;flex:0 0 40px;
+  display:grid;place-items:center;
+  border-radius:11px;
+  color:#fff;
+  background:linear-gradient(135deg,#0a3f9f,#0c4fb3);
+  box-shadow:0 7px 15px rgba(11,95,219,.20);
+}
+.file-copy{min-width:0;flex:1}
+.file-copy strong{display:block;color:#16345f;font-size:.90rem}
+.file-copy span{
+  display:block;margin-top:3px;
+  color:#71839e;font-size:.72rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.file-select-btn{
+  min-height:37px;
+  padding:0 12px;
+  border:0;border-radius:9px;
+  color:#fff;
+  background:linear-gradient(135deg,#0a3f9f,#0c4fb3 58%,#2f8cff);
+  font-size:.70rem;font-weight:800;
+  box-shadow:0 7px 15px rgba(11,95,219,.18);
+}
+#fileInput{display:none}
+
+/* File attachment follows the same label-left / field-right rule */
+.field > .file-box{
+  min-width:0;
+}
+
+/* ===== ACTION ===== */
+.action-bar{
+  margin-top:14px;
+  padding-top:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-top:1px solid rgba(72,135,214,.16);
+}
+.action-note{
+  color:#71839e;
+  font-size:.67rem;
+  line-height:1.45;
+}
+.actions{display:flex;gap:9px}
+.btn{
+  min-height:46px;
+  padding:0 17px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:11px;
+  color:#fff;
+  font-size:.96rem;
+  font-weight:800;
+  letter-spacing:.01em;
+  box-shadow:0 9px 20px rgba(15,23,42,.13),inset 0 1px 0 rgba(255,255,255,.20);
+  transition:transform .15s,filter .15s,box-shadow .15s;
+}
+.btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.04)}
+.btn:active:not(:disabled){transform:translateY(1px) scale(.99)}
+.btn:disabled{opacity:.60;cursor:wait}
+.btn-secondary{background:linear-gradient(135deg,#475569,#64748b)}
+.btn-primary{background:linear-gradient(135deg,#0a3f9f,#0c4fb3 58%,#2f8cff)}
+.btn-green{background:linear-gradient(135deg,#079b5b,#16b875)}
+.btn .material-symbols-outlined{font-size:20px}
+
+/* ===== MESSAGE ===== */
+.message{
+  display:none;
+  margin-top:12px;
+  padding:11px 13px;
+  border-radius:10px;
+  font-size:.75rem;
+  font-weight:700;
+  text-align:center;
+}
+.message.show{display:block}
+.message.success{color:#166534;background:#dcfce7;border:1px solid #bbf7d0}
+.message.error{color:#991b1b;background:#fef2f2;border:1px solid #fecaca}
+.message.info{color:#0753b8;background:#eff6ff;border:1px solid #bfdbfe}
+
+/* ===== SUCCESS MODAL ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(3,24,61,.58);
+  backdrop-filter:blur(8px);
+}
+.modal.show{display:flex}
+.modal-card{
+  width:min(460px,100%);
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.88);
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(241,247,255,.96));
+  box-shadow:0 34px 90px rgba(0,46,128,.28),0 12px 35px rgba(15,23,42,.16);
+  animation:pop .28s ease-out;
+}
+@keyframes pop{
+  from{opacity:0;transform:translateY(12px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.success-icon{
+  width:66px;height:66px;
+  margin:0 auto 13px;
+  display:grid;place-items:center;
+  border-radius:20px;
+  color:#fff;
+  background:linear-gradient(135deg,#10b981,#059669);
+  box-shadow:0 12px 28px rgba(16,185,129,.25);
+}
+.modal-card h2{margin:0;color:#102b52;font-size:1.35rem}
+.modal-card p{margin:8px 0 18px;color:#637694;font-size:.86rem;line-height:1.6}
+.modal-close{width:100%}
+
+/* ===== LOADING ===== */
+.loading{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  align-items:center;
+  justify-content:center;
+  background:rgba(15,35,70,.30);
+  backdrop-filter:blur(3px);
+}
+.loading.show{display:flex}
+.loading-card{
+  min-width:230px;
+  padding:20px;
+  text-align:center;
+  border-radius:16px;
+  background:rgba(255,255,255,.96);
+  box-shadow:0 25px 60px rgba(0,46,128,.22);
+}
+.spinner{
+  width:30px;height:30px;
+  margin:0 auto 10px;
+  border:3px solid #dbeafe;
+  border-top-color:#0c4fb3;
+  border-radius:50%;
+  animation:spin .75s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-card span{color:#234c82;font-size:.75rem;font-weight:700}
+
+/* ===== DUYỆT THU CHI V2 ===== */
+#branch,
+#bankVendor{
+  min-width:0;
+}
+@media(min-width:801px){
+  #branch{grid-column:auto}
+  #bankVendor{grid-column:auto}
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+  .field-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+}
+
+@media (max-width: 700px){
+  body{
+    padding:0;
+    background:
+      url("assets/background.png") center top/cover fixed no-repeat,
+      #eef7ff;
+  }
+
+  .ecorp-topbar{
+    width:100%;
+    margin:0;
+    padding:16px 10px 10px;
+    gap:0;
+  }
+
+  .ecorp-brand{width:100%;gap:9px}
+  .ecorp-logo-wrap{width:96px;min-width:96px;height:48px}
+  .glow-wordmark{font-size:1.55rem}
+  .ecorp-brand-divider{height:34px}
+  .ecorp-brand-title{font-size:.86rem}
+  .ecorp-brand-subtitle{font-size:.46rem;letter-spacing:.07em}
+  .ecorp-status-badges{display:none}
+
+  .main-container{width:100%;margin:0}
+
+  .form-panel{
+    width:100%;
+    padding:15px;
+    border-radius:15px 15px 0 0;
+    box-shadow:0 10px 30px rgba(0,54,145,.14);
+  }
+
+  .panel-title{
+    min-height:53px;
+    margin-bottom:10px;
+    padding:7px 10px;
+    border-radius:10px;
+  }
+
+  .title-icon{
+    width:34px;
+    height:34px;
+    flex-basis:34px;
+  }
+
+  .title-copy strong{font-size:.86rem}
+  .title-copy small{font-size:.50rem}
+
+  .form-section{
+    margin-top:0;
+    padding:15px;
+    border-radius:11px;
+  }
+
+  .field-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+
+  /* Một cột label cố định => toàn bộ field thẳng hàng */
+  .field{
+    display:grid;
+    grid-template-columns:125px minmax(0,1fr);
+    column-gap:9px;
+    align-items:center;
+    min-height:45px;
+  }
+
+  .field label{
+    width:125px;
+    min-width:125px;
+    margin:0;
+    white-space:nowrap;
+    overflow:visible;
+    font-size:.82rem;
+    line-height:1.15;
+  }
+
+  .field input,
+  .field select{
+    width:100%;
+    min-width:0;
+    min-height:55px;
+    padding:8px 10px;
+    font-size:.90rem;
+  }
+
+  .amount-wrap{
+    width:100%;
+    min-width:0;
+  }
+
+  .amount-wrap input{padding-right:58px}
+  .amount-unit{right:10px;font-size:.72rem}
+
+  /* Nội dung: title và placeholder không chồng lên nhau */
+  .content-field{
+    display:block;
+    min-height:104px;
+    position:relative;
+  }
+
+  .content-field::before{
+    top:10px;
+    left:12px;
+    font-size:.82rem;
+  }
+
+  .content-field textarea{
+    width:100%;
+    min-height:104px;
+    padding:34px 12px 10px;
+    font-size:1rem;
+    line-height:1.45;
+  }
+
+  .content-field textarea::placeholder{font-size:.95rem}
+
+  .file-field{
+    display:block;
+    min-height:auto;
+  }
+
+  .file-field > label{
+    width:auto;
+    min-width:0;
+    margin-bottom:6px;
+    font-size:.82rem;
+  }
+
+  .file-box{
+    min-height:76px;
+    padding:9px;
+    gap:9px;
+  }
+
+  .file-icon{
+    width:37px;
+    height:37px;
+    flex-basis:37px;
+  }
+
+  .file-copy strong{font-size:.76rem}
+  .file-copy span{font-size:.63rem}
+
+  .file-select-btn{
+    min-height:35px;
+    padding:0 10px;
+    font-size:.68rem;
+  }
+
+  .action-bar{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    padding-top:11px;
+  }
+
+  .action-note{font-size:.66rem}
+
+  .actions{
+    width:100%;
+    display:flex;
+  }
+
+  .actions .btn{flex:1}
+}
+
+@media (max-width:370px){
+  .field{
+    grid-template-columns:116px minmax(0,1fr);
+    column-gap:7px;
+  }
+
+  .field label{
+    width:116px;
+    min-width:116px;
+    font-size:.78rem;
+  }
+
+  .field input,
+  .field select{
+    font-size:.86rem;
+  }
+
+  .content-field::before{font-size:.95rem}
+  .content-field textarea::placeholder{font-size:.95rem}
+}
+
+
+/* =========================================================
+   FINAL ALIGNMENT OVERRIDE
+   - Desktop: all label columns are exactly 132px
+   - Mobile: all label columns are exactly 125px
+   - File attachment follows the exact same label/field row
+   ========================================================= */
+
+.field-grid > .field:not(.full){
+  display:grid !important;
+  grid-template-columns:130px minmax(0,1fr) !important;
+  column-gap:18px !important;
+  align-items:center !important;
+  min-width:0 !important;
+}
+
+.field-grid > .field:not(.full) > label{
+  width:132px !important;
+  min-width:130px !important;
+  max-width:130px !important;
+  white-space:nowrap !important;
+  overflow:visible !important;
+  margin:0 !important;
+}
+
+.field-grid > .file-field{
+  display:grid !important;
+  grid-template-columns:132px minmax(0,1fr) !important;
+  grid-column:1 / -1 !important;
+  column-gap:20px !important;
+  align-items:center !important;
+  min-width:0 !important;
+}
+
+.field-grid > .file-field > label{
+  width:132px !important;
+  min-width:132px !important;
+  max-width:132px !important;
+  margin:0 !important;
+  white-space:nowrap !important;
+}
+
+.field-grid > .file-field > .file-box{
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+}
+
+@media (max-width:900px){
+  .field-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .field-grid > .field:not(.full){
+    grid-column:auto !important;
+  }
+
+  .field-grid > .field:not(.full),
+  .field-grid > .file-field{
+    grid-template-columns:125px minmax(0,1fr) !important;
+    column-gap:9px !important;
+  }
+
+  .field-grid > .field:not(.full) > label,
+  .field-grid > .file-field > label{
+    width:125px !important;
+    min-width:125px !important;
+    max-width:125px !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+  }
+
+  .field-grid > .file-field{
+    grid-column:auto !important;
+    min-height:76px !important;
+  }
+
+  .field-grid > .file-field > .file-box{
+    min-width:0 !important;
+    min-height:76px !important;
+  }
+}
+
+@media (max-width:370px){
+  .field-grid > .field:not(.full),
+  .field-grid > .file-field{
+    grid-template-columns:116px minmax(0,1fr) !important;
+    column-gap:7px !important;
+  }
+
+  .field-grid > .field:not(.full) > label,
+  .field-grid > .file-field > label{
+    width:116px !important;
+    min-width:116px !important;
+    max-width:116px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL FIX - FILE ĐÍNH KÈM
+   Label luôn nằm ngang với khung chứng từ trên PC + MOBILE
+   Cùng cột label với toàn bộ các field khác
+   ========================================================= */
+
+.field-grid > .file-field{
+  display:grid !important;
+  grid-template-columns:132px minmax(0,1fr) !important;
+  grid-column:1 / -1 !important;
+  align-items:center !important;
+  column-gap:25px !important;
+  width:100% !important;
+  min-width:0 !important;
+  min-height:76px !important;
+}
+
+.field-grid > .file-field > label{
+  display:flex !important;
+  align-items:center !important;
+  width:132px !important;
+  min-width:132px !important;
+  margin:0 !important;
+  padding:0 !important;
+  white-space:nowrap !important;
+  font-size:1rem !important;
+  line-height:1.2 !important;
+}
+
+.field-grid > .file-field > .file-box{
+  display:flex !important;
+  align-items:center !important;
+  width:100% !important;
+  min-width:0 !important;
+  min-height:76px !important;
+  margin:0 !important;
+}
+
+/* MOBILE: vẫn giữ Label | Field trên cùng một hàng */
+@media (max-width:700px){
+  .field-grid > .file-field{
+    display:grid !important;
+    grid-template-columns:125px minmax(0,1fr) !important;
+    grid-column:auto !important;
+    column-gap:9px !important;
+    align-items:center !important;
+    width:100% !important;
+    min-height:76px !important;
+  }
+
+  .field-grid > .file-field > label{
+    display:flex !important;
+    align-items:center !important;
+    width:125px !important;
+    min-width:125px !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+    font-size:.82rem !important;
+  }
+
+  .field-grid > .file-field > .file-box{
+    display:flex !important;
+    align-items:center !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:76px !important;
+    padding:9px !important;
+    margin:0 !important;
+  }
+}
+
+/* MOBILE rất hẹp: giảm cột label nhưng không cho xuống dòng */
+@media (max-width:370px){
+  .field-grid > .file-field{
+    grid-template-columns:116px minmax(0,1fr) !important;
+    column-gap:7px !important;
+  }
+
+  .field-grid > .file-field > label{
+    width:116px !important;
+    min-width:116px !important;
+    font-size:.9rem !important;
+  }
+
+  .field-grid > .file-field > .file-box{
+    min-height:70px !important;
+    padding:7px !important;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="ecorp-topbar">
+  <div class="ecorp-brand">
+    <div class="ecorp-logo-wrap">
+      <img class="ecorp-logo" src="assets/logo-glow.png" alt="GLOW English">
+    </div>
+    <div class="ecorp-brand-divider"></div>
+    <div>
+      <div class="ecorp-brand-title">ĐỀ XUẤT DUYỆT THU CHI</div>
+      <div class="ecorp-brand-subtitle">GLOW FINANCE APPROVAL SYSTEM</div>
+    </div>
+  </div>
+
+  <div class="ecorp-status-badges">
+    <div class="ecorp-status">
+      <span class="ecorp-status-icon material-symbols-outlined">verified</span>
+      <div><strong>GLOW</strong><small>Finance System</small></div>
+    </div>
+    <div class="ecorp-status">
+      <span class="ecorp-status-icon material-symbols-outlined">schedule</span>
+      <div><strong>Xử lý nhanh</strong><small>24/7 Workflow</small></div>
+    </div>
+    <div class="ecorp-status">
+      <span class="ecorp-status-icon material-symbols-outlined">shield</span>
+      <div><strong>Enterprise</strong><small>Secure Process</small></div>
+    </div>
+  </div>
+</header>
+
+<main class="main-container">
+  <section class="form-panel">
+
+    <div class="panel-title">
+      <div class="title-icon material-symbols-outlined">request_quote</div>
+      <div class="title-copy">
+        <strong>ĐỀ XUẤT THU / CHI</strong>
+        <small>PAYMENT REQUEST & APPROVAL</small>
+      </div>
+    </div>
+
+    <form id="expenseForm">
+
+      <!-- ================= MỘT BẢNG FORM DUY NHẤT ================= -->
+      <section class="form-section">
+        <div class="field-grid">
+
+          <!-- Người đề xuất -->
+          <div class="field">
+            <label for="proposer">Người đề xuất <span class="required">*</span></label>
+            <input id="proposer" name="proposer" type="text"
+                   placeholder="Nhập họ tên người đề xuất" required>
+          </div>
+
+          <!-- Cơ sở -->
+          <div class="field">
+            <label for="branch">Cơ sở <span class="required">*</span></label>
+            <select id="branch" name="branch" required>
+              <option value="">Đang tải danh sách cơ sở...</option>
+            </select>
+          </div>
+
+          <!-- Số tiền -->
+          <div class="field">
+            <label for="amount">Số tiền <span class="required">*</span></label>
+            <div class="amount-wrap">
+              <input id="amount" name="amount" type="text" inputmode="numeric"
+                     autocomplete="off" placeholder="Nhập số tiền" required>
+              <span class="amount-unit">VNĐ</span>
+            </div>
+          </div>
+
+          <!-- Khoản thu / chi -->
+          <div class="field">
+            <label for="type">Khoản thu / chi <span class="required">*</span></label>
+            <select id="type" name="type" required>
+              <option value="">-- Chọn loại --</option>
+              <option value="Khoản thu">Khoản thu</option>
+              <option value="Khoản chi">Khoản chi</option>
+            </select>
+          </div>
+
+          <!-- Hình thức -->
+          <div class="field">
+            <label for="method">Hình thức <span class="required">*</span></label>
+            <select id="method" name="method" required>
+              <option value="">-- Chọn hình thức --</option>
+              <option value="TKCS">TKCS</option>
+              <option value="Thủ Quỹ">Thủ Quỹ</option>
+              <option value="Báo cáo">Báo cáo</option>
+              <option value="TCT">TCT</option>
+            </select>
+          </div>
+
+          <!-- Tài khoản rút -->
+          <div class="field">
+            <label for="withdrawAcc">Tài khoản rút</label>
+            <select id="withdrawAcc" name="withdrawAcc">
+              <option value="">Đang tải danh sách tài khoản...</option>
+            </select>
+          </div>
+
+          <!-- Số tài khoản -->
+          <div class="field">
+            <label for="bankNo">Số tài khoản</label>
+            <input id="bankNo" name="bankNo" type="text"
+                   placeholder="Nhập số tài khoản">
+          </div>
+
+          <!-- Tên tài khoản -->
+          <div class="field">
+            <label for="bankName">Tên tài khoản</label>
+            <input id="bankName" name="bankName" type="text"
+                   placeholder="Tên chủ tài khoản">
+          </div>
+
+          <!-- Ngân hàng hưởng -->
+          <div class="field">
+            <label for="bankVendor">NH hưởng</label>
+            <select id="bankVendor" name="bankVendor">
+              <option value="">-- Chọn ngân hàng --</option>
+            </select>
+          </div>
+
+          <!-- Mã thống kê -->
+          <div class="field">
+            <label for="statCode">Mã thống kê</label>
+            <select id="statCode" name="statCode">
+              <option value="">-- Chọn mã thống kê --</option>
+            </select>
+          </div>
+
+          <!-- Nội dung thu chi -->
+          <div class="field full content-field">
+            <textarea id="content" name="content"
+                      placeholder="Nhập / mô tả chi tiết nội dung khoản thu hoặc chi..."
+                      required></textarea>
+          </div>
+
+          <!-- File đính kèm -->
+          <div class="field full file-field">
+            <label>File đính kèm</label>
+            <div class="file-box">
+              <div class="file-icon material-symbols-outlined">attach_file</div>
+              <div class="file-copy">
+                <strong>Chứng từ / tài liệu đính kèm</strong>
+                <span id="fileName">Chưa chọn file</span>
+              </div>
+              <button type="button" class="file-select-btn" id="chooseFileBtn">
+                Chọn file
+              </button>
+            </div>
+            <input id="fileInput" type="file">
+          </div>
+
+        </div>
+      </section>
+
+      <div id="message" class="message"></div>
+
+      <div class="action-bar">
+        <div class="action-note">
+          Vui lòng kiểm tra lại toàn bộ thông tin trước khi gửi đề xuất.<br>
+          Các dữ liệu sau khi gửi sẽ được ghi nhận vào hệ thống GLOW.
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" id="resetBtn">
+            <span class="material-symbols-outlined">restart_alt</span>
+            Đặt lại
+          </button>
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            <span class="material-symbols-outlined">send</span>
+            Gửi đề xuất
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </section>
+</main>
+
+<div class="loading" id="loading">
+  <div class="loading-card">
+    <div class="spinner"></div>
+    <span id="loadingText">Đang xử lý...</span>
+  </div>
+</div>
+
+<div class="modal" id="successModal">
+  <div class="modal-card">
+    <div class="success-icon material-symbols-outlined">check_circle</div>
+    <h2>Gửi đề xuất thành công</h2>
+    <p>
+      Thông tin thu / chi đã được ghi nhận vào hệ thống GLOW.
+      Bạn có thể đóng cửa sổ này để tiếp tục thao tác.
+    </p>
+    <button type="button" class="btn btn-primary modal-close" id="modalCloseBtn">
+      Đóng
+    </button>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+let selectedFile = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadDropdownData();
+
+  $('chooseFileBtn').addEventListener('click', () => $('fileInput').click());
+
+  $('fileInput').addEventListener('change', e => {
+    selectedFile = e.target.files && e.target.files[0] ? e.target.files[0] : null;
+    $('fileName').textContent = selectedFile
+      ? `${selectedFile.name} (${formatBytes(selectedFile.size)})`
+      : 'Chưa chọn file';
+  });
+
+  $('resetBtn').addEventListener('click', resetForm);
+  $('modalCloseBtn').addEventListener('click', () => $('successModal').classList.remove('show'));
+  $('expenseForm').addEventListener('submit', submitForm);
+
+  // Tự động format ô "Số tiền": chèn dấu chấm ngăn cách hàng nghìn khi gõ
+  // (VD: gõ "27000" -> hiển thị "27.000"), chỉ cho phép nhập chữ số.
+  $('amount').addEventListener('input', e => {
+    const digitsOnly = e.target.value.replace(/\D/g, '');
+    e.target.value = digitsOnly ? formatAmountDisplay(digitsOnly) : '';
+  });
+});
+
+// Chuyển chuỗi chỉ gồm chữ số (VD "27000") thành dạng hiển thị "27.000"
+function formatAmountDisplay(digitsOnly) {
+  return digitsOnly.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
+// Bỏ dấu chấm ngăn cách hàng nghìn, trả về số nguyên thực (VD "27.000" -> 27000)
+function parseAmountValue(displayValue) {
+  const digitsOnly = String(displayValue).replace(/\D/g, '');
+  return digitsOnly ? parseInt(digitsOnly, 10) : 0;
+}
+
+async function loadDropdownData() {
+  try {
+    const response = await fetch('/.netlify/functions/api?action=dropdown', {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' }
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.message || 'Không tải được danh mục.');
+    }
+
+    const data = result.data || {};
+    fillSelect('statCode', data.statCodes || [], '-- Chọn mã thống kê --');
+    fillSelect('bankVendor', data.banks || [], '-- Chọn ngân hàng --');
+    fillSelect('withdrawAcc', data.withdrawAccs || [], '-- Chọn tài khoản rút --');
+    fillSelect('branch', data.branches || [], '-- Chọn cơ sở --');
+
+  } catch (err) {
+    fillSelect('statCode', [], '-- Không tải được danh mục --');
+    fillSelect('bankVendor', [], '-- Không tải được danh mục --');
+    fillSelect('withdrawAcc', [], '-- Không tải được danh mục --');
+    fillSelect('branch', [], '-- Không tải được danh mục --');
+    showMessage('Không tải được danh mục từ hệ thống. Bạn vẫn có thể kiểm tra lại kết nối và thử tải lại trang.', 'error');
+    console.error(err);
+  }
+}
+
+function fillSelect(id, values, placeholder) {
+  const select = $(id);
+  select.innerHTML = '';
+
+  const first = document.createElement('option');
+  first.value = '';
+  first.textContent = placeholder;
+  select.appendChild(first);
+
+  values.forEach(value => {
+    const option = document.createElement('option');
+    option.value = String(value);
+    option.textContent = String(value);
+    select.appendChild(option);
+  });
+}
+
+async function submitForm(event) {
+  event.preventDefault();
+
+  const form = $('expenseForm');
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  setLoading(true, 'Đang chuẩn bị dữ liệu...');
+
+  try {
+    const formData = {
+      proposer: $('proposer').value.trim(),
+      amount: parseAmountValue($('amount').value),
+      type: $('type').value,
+      method: $('method').value,
+      statCode: $('statCode').value,
+      bankNo: $('bankNo').value.trim(),
+      bankName: $('bankName').value.trim(),
+      bankVendor: $('bankVendor').value,
+      content: $('content').value.trim(),
+      branch: $('branch').value.trim(),
+      withdrawAcc: $('withdrawAcc').value
+    };
+
+    if (selectedFile) {
+      setLoading(true, 'Đang đọc file đính kèm...');
+      formData.file = await fileToBase64(selectedFile);
+    }
+
+    setLoading(true, selectedFile ? 'Đang lưu đề xuất và file...' : 'Đang lưu đề xuất...');
+
+    const response = await fetch('/.netlify/functions/api', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    let result;
+    try {
+      result = await response.json();
+    } catch (_) {
+      throw new Error('Máy chủ trả về dữ liệu không hợp lệ.');
+    }
+
+    setLoading(false);
+
+    if (!response.ok || !result.ok) {
+      showMessage(result.message || 'Không thể lưu đề xuất.', 'error');
+      return;
+    }
+
+    resetForm(false);
+    $('successModal').classList.add('show');
+
+  } catch (error) {
+    setLoading(false);
+    showMessage('Không thể đọc file đính kèm: ' + getErrorText(error), 'error');
+  }
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const result = String(reader.result || '');
+      const comma = result.indexOf(',');
+      const base64 = comma >= 0 ? result.slice(comma + 1) : result;
+
+      resolve({
+        name: file.name,
+        mimeType: file.type || 'application/octet-stream',
+        data: base64
+      });
+    };
+
+    reader.onerror = () => reject(reader.error || new Error('Không đọc được file.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+function resetForm(showInfo = true) {
+  $('expenseForm').reset();
+  selectedFile = null;
+  $('fileInput').value = '';
+  $('fileName').textContent = 'Chưa chọn file';
+  hideMessage();
+
+  if (showInfo) {
+    showMessage('Đã đặt lại biểu mẫu.', 'info');
+    setTimeout(hideMessage, 1800);
+  }
+}
+
+function showMessage(text, type) {
+  const box = $('message');
+  box.textContent = text;
+  box.className = 'message show ' + (type || 'info');
+}
+
+function hideMessage() {
+  $('message').className = 'message';
+  $('message').textContent = '';
+}
+
+function setLoading(show, text) {
+  $('loading').classList.toggle('show', !!show);
+  if (text) $('loadingText').textContent = text;
+  $('submitBtn').disabled = !!show;
+  $('resetBtn').disabled = !!show;
+}
+
+function getErrorText(error) {
+  return error && error.message ? error.message : String(error || 'Không rõ lỗi.');
+}
+
+function formatBytes(bytes) {
+  if (!bytes) return '0 B';
+  const units = ['B','KB','MB','GB'];
+  const i = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+  return `${(bytes / Math.pow(1024, i)).toFixed(i ? 1 : 0)} ${units[i]}`;
+}
+</script>
+
+</body>
+</html>
